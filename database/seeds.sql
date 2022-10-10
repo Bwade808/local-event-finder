@@ -1,0 +1,10 @@
+INSERT INTO october_events (event_name, event_type, month_day) values ("Westgate Trunk or Treat", "Family", 19);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Surprise Trunk or Treat", "Family", 19);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Phoenix Suns vs Portland Trailblazers", "Family, Sports", 21);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Phoenix Suns vs Los Angeles Clippers", "Family, Sports", 23);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Phoenix Suns vs Golden State Warriors", "Family, Sports", 25);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Phoenix Suns vs New Orleans Pelicans", "Family, Sports", 28);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Scottsdale Happy Hour Halloweekend Bar Crawl", "Adult", 22);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Trick or Drink: Scottsdale Halloween Bar Crawl", "Adult ", 28);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Tolmachoff Farms Pumpkin Patch", "Family", 1-31);
+INSERT INTO october_events (event_name, event_type, month_day) values ("Arizona State Fair", "Family", 10-30);
