@@ -1,4 +1,88 @@
+/* COLORS: 
+halloween orange: background-color: rgb(196, 169, 32); 
+*/
+
 * {
     margin: 0px;
     padding: 0px;
+}
+
+body {
+    background-image: url('phoenix.jpg');
+    background-size: auto;
+}
+
+.input_box, .add_box h2 {
+    text-align: center;
+}
+.both_boxes {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+}
+.input_box {
+    /* margin-left: 2%;
+    margin-top: 10%; */
+    padding: 10px;
+    background-color: rgb(117, 123, 128);
+    opacity: .8;
+    border: 3px solid black;
+    border-radius: 3px;
+    width: 350px;
+}
+.add_box {
+    /* margin-left: 2%; */
+    padding: 10px;
+    background-color: rgb(117, 123, 128);
+    opacity: .8;
+    border: 3px solid black;
+    border-radius: 3px;
+    width: 350px;
+}
+input[type=submit] {
+   padding: 1px;
+   cursor: pointer;
+}
+label {
+    font-weight: bold;
+    font-size: 15px;
+    margin: 2px;
+}
+
+.outer_results {
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    padding: 10px;
+    width: 350px;
+    background-color: rgb(117, 123, 128);
+    opacity: .8;
+    border: 5px solid black;
+    border-radius: 3px;
+}
+
+.main {
+    margin-top: 2%;
+    text-align: center;
+    color: rgb(196, 169, 32);
+    font-size: 45px;
+}
+.results {
+    margin-top: 25px;
+    /* width: 30%; */
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: black;
+}
+
+.result_card {
+    padding: 5px;
+}
+
+.newCard {
+    margin:10px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: rgb(117, 123, 128);
 }
