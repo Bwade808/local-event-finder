@@ -7,6 +7,7 @@
     <title>Local Event Finder</title>
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     
@@ -43,6 +44,7 @@
             <option value="Family">Family</option>
             <option value="Sports">Sports</option>
             <option value="Adult">Adult</option>
+            <option value="Comedy">Comedy</option>
             <option value="All">All</option>
             </select>
             
@@ -52,7 +54,7 @@
           <div class="add_box">
             <h2>Add Events</h2>
             <label for="month">Month</label>
-            <select id="month" name="month">
+            <select id="add_month" name="month">
             <option value="January">January</option>
             <option value="February">February</option>
             <option value="March">March</option>
@@ -65,21 +67,24 @@
             <option value="October">October</option>
             <option value="November">November</option>
             <option value="December">December</option>
-            </select>
+            </select><br/>
             
             <label for="type">Event type</label>
-            <select id="event_type" name="type">
+            <select id="add_event_type" name="type">
             <option value="Family">Family</option>
             <option value="Sports">Sports</option>
             <option value="Adult">Adult</option>
             <option value="Comedy">Comedy</option>
             <option value="Entertainment">Entertainment</option>
-            </select>
+            </select><br/>
+
+            <label for="type">Event Name</label>
+            <input type="text" id="e_name" name="e_name" placeholder="event name..."><br/>
 
             <label for="event_date">Enter date and start time for the event:</label>
             <input id="event_date" type="datetime-local" name="date" />
             
-            <input type="submit" value="Add Event" onclick="logDate()">
+            <input type="submit" value="Add Event" onclick="addEvent()">
         </div>
         </div>
     <div class="outer_results">

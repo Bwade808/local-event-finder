@@ -39,6 +39,9 @@ body {
     border-radius: 3px;
     width: 350px;
 }
+/* .add_box, label {
+    margin-bottom: 2px;
+} */
 input[type=submit] {
    padding: 1px;
    cursor: pointer;

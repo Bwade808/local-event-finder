@@ -2,6 +2,10 @@ const results = document.querySelector('.results');
 results.innerHTML = "";
 const sMonth = document.querySelector('#month');
 const sType = document.querySelector('#event_type');
+const aMonth = document.querySelector('#add_month');
+const aType = document.querySelector('#add_event_type');
+const day = document.querySelector('#event_date');
+const eName = document.querySelector('#e_name');
 
 // let cardCreator = (name, type, date) => {
 //     let newCard = document.createElement('div');
@@ -16,6 +20,9 @@ const sType = document.querySelector('#event_type');
 //     return newCard;
 //     // results.append(newCard);
 // };
+
+
+
 
 
 let searchAll = () =>{
@@ -73,12 +80,40 @@ let querySearch = () => {
             newCard.append(eventName, eventTypeDate);
             results.append(newCard);
         }
-        
     })
 };
 
-let logDate = () => {
-    let day = document.querySelector('#event_date');
-    let dayVal = day.value.substring(8, 10);
-    console.log(dayVal);
-}
+//FETCH POST
+let addEvent = () => {
+    let aMonthVal = aMonth.value;
+    let newEvent = {
+        "event_name": eName.value,
+        "event_type": aType.value,
+        "month_day": Number(day.value.substring(8, 10))
+        
+    };
+    if(aMonthVal === "October"){
+        fetch('http://localhost:8002/events/october', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newEvent)
+        })
+        .then((data) => {
+        alert('You have successfully added an event.  Thank you!')
+        console.log('Success', data)
+        })
+    };
+};
+
+
+// let logDate = () => {
+//     let day = document.querySelector('#event_date');
+//     let dayVal = day.value.substring(8, 10);
+//     console.log(dayVal);
+// }
+
+
+
+
