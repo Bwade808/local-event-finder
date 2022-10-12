@@ -1,11 +1,16 @@
 const results = document.querySelector('.results');
 results.innerHTML = "";
+const resultsH2 = document.querySelector('.results-h2');
+const h2Text = resultsH2.innerHTML;
+resultsH2.innerHTML = "";
 const sMonth = document.querySelector('#month');
 const sType = document.querySelector('#event_type');
 const aMonth = document.querySelector('#add_month');
 const aType = document.querySelector('#add_event_type');
 const day = document.querySelector('#event_date');
 const eName = document.querySelector('#e_name');
+const clickCard = document.querySelectorAll('.newCard');
+// const cardEvent = document.querySelector('.cardEvent');
 
 // let cardCreator = (name, type, date) => {
 //     let newCard = document.createElement('div');
@@ -26,7 +31,7 @@ const eName = document.querySelector('#e_name');
 
 
 let searchAll = () =>{
-    
+    resultsH2.innerHTML = h2Text;
 if(sMonth.value === "October" && sType.value === "All"){
 fetch('http://localhost:8002/events/october')
 .then((response)=> response.json())
@@ -40,13 +45,18 @@ fetch('http://localhost:8002/events/october')
         let data3 = data[i].month_day;
         let newCard = document.createElement('div');
         newCard.className = "newCard";
+        newCard.id = data[i].event_id;
         let eventName = document.createElement('h2');
         eventName.className = "cardEvent";
         eventName.textContent = data1;
         let eventTypeDate = document.createElement('h3');
         eventTypeDate.className = "cardTypeDate";
         eventTypeDate.textContent = `${data2} / October ${data3}, 2022`;
-        newCard.append(eventName, eventTypeDate);
+        let deleteIcon = document.createElement('button');
+        deleteIcon.className = "fa fa-trash";
+        let updateIcon = document.createElement('button');
+        updateIcon.className = "fas fa-edit";
+        newCard.append(eventName, eventTypeDate, deleteIcon, updateIcon);
         results.append(newCard);
     }
 });
@@ -71,14 +81,38 @@ let querySearch = () => {
             let data3 = data[i].month_day;
             let newCard = document.createElement('div');
             newCard.className = "newCard";
+            newCard.id = data[i].event_id;
             let eventName = document.createElement('h2');
             eventName.className = "cardEvent";
             eventName.textContent = data1;
             let eventTypeDate = document.createElement('h3');
             eventTypeDate.className = "cardTypeDate";
             eventTypeDate.textContent = `${data2} / October ${data3}, 2022`;
-            newCard.append(eventName, eventTypeDate);
+            let deleteIcon = document.createElement('button');
+            deleteIcon.className = "fa fa-trash";
+            deleteIcon.id = data[i].event_id;
+            let updateIcon = document.createElement('button');
+            updateIcon.className = "fas fa-edit";
+            newCard.append(eventName, eventTypeDate, deleteIcon, updateIcon);
             results.append(newCard);
+
+            deleteIcon.addEventListener('click', (e) => {
+                console.log(e.target.id)
+                let eId = e.target.id;
+                let isConfirmed = confirm('Are you sure you want to delete this event?');
+                if(isConfirmed){
+                    fetch(`http://localhost:8002/events/october/${eId}`,{
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then((data) => {
+                        alert('You have successfully deleted an event');
+                        console.log('Successfully delete', data)
+                    })
+                }
+            });
         }
     })
 };
@@ -106,6 +140,9 @@ let addEvent = () => {
         })
     };
 };
+
+
+
 
 
 // let logDate = () => {

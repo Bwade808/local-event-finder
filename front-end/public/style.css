@@ -1,5 +1,6 @@
 /* COLORS: 
 halloween orange: background-color: rgb(196, 169, 32); 
+grey: rgb(117, 123, 128)
 */
 
 * {
@@ -8,36 +9,104 @@ halloween orange: background-color: rgb(196, 169, 32);
 }
 
 body {
-    background-image: url('phoenix.jpg');
+    background-image: url('phoenix4.jpg');
+    background-repeat: repeat-y;
     background-size: auto;
+    background-position: 0px 3px;
+    /* height: 100vh; */
 }
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    height: 120px;
+    width: 100%;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+.after-header-container {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    margin-top: 30px;
+}
+.results-h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.results-h2 h2 {
+    font-size: 40px;
+    font-family: 'Kaushan Script';
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    height: 100%;
+}
+.input-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 20px;
+    height: 650px;
+    position: sticky;
+    top: 140px;
+}
+.input-inner-container {
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: black;
+    /* opacity: .9; */
+}
+
+.results-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
 
 .input_box, .add_box h2 {
     text-align: center;
 }
-.both_boxes {
+/* .both_boxes {
     position: absolute;
     left: 5%;
     top: 10%;
-}
+} */
 .input_box {
     /* margin-left: 2%;
     margin-top: 10%; */
-    padding: 10px;
-    background-color: rgb(117, 123, 128);
-    opacity: .8;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgba(193, 127, 40, 0.754);
+    /* opacity: .9; */
     border: 3px solid black;
     border-radius: 3px;
     width: 350px;
 }
 .add_box {
     /* margin-left: 2%; */
-    padding: 10px;
-    background-color: rgb(117, 123, 128);
-    opacity: .8;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgba(193, 127, 40, 0.754);
+    /* opacity: .9; */
     border: 3px solid black;
     border-radius: 3px;
     width: 350px;
+    /* margin-top: 20px; */
 }
 /* .add_box, label {
     margin-bottom: 2px;
@@ -52,7 +121,7 @@ label {
     margin: 2px;
 }
 
-.outer_results {
+/* .outer_results {
     position: absolute;
     right: 5%;
     top: 10%;
@@ -62,20 +131,30 @@ label {
     opacity: .8;
     border: 5px solid black;
     border-radius: 3px;
-}
+} */
 
 .main {
     margin-top: 2%;
     text-align: center;
-    color: rgb(196, 169, 32);
-    font-size: 45px;
+    color: rgba(193, 127, 40, 0.754);
+    font-size: 50px;
+    font-family: 'Kaushan Script';
+    padding-right: 12px;
+    box-shadow: 5px 5px 5px rgba(187, 132, 60, 0.754);
 }
 .results {
-    margin-top: 25px;
     /* width: 30%; */
     border: 2px solid black;
     border-radius: 3px;
     background-color: black;
+    /* opacity: .9; */
+}
+
+.newCard button {
+    background-color: rgba(193, 127, 40, 0.754);
+    /* opacity: .9; */
+    border: none;
+    padding-right: 5px;
 }
 
 .result_card {
@@ -83,9 +162,57 @@ label {
 }
 
 .newCard {
-    margin:10px;
+    margin:5px;
     padding: 5px;
     border: 2px solid black;
     border-radius: 3px;
-    background-color: rgb(117, 123, 128);
+    background-color: rgba(193, 127, 40, 0.754);
+    width: 325px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    height: 120px;
+    width: 100%;
+    color: white;
+    margin-top: 20px;
+}
+
+.footer-h3 h3 {
+    color: white;
+    font-size: 25px;
+}
+.footer-h3 {
+    margin-bottom: 15px;
+}
+
+.foot-items {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.foot-items a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.foot-items a:link {
+    color:white;
+}
+.foot-items a:visited {
+    color:white;
+}
+.foot-items a:hover {
+    color:rgba(193, 127, 40, 0.754);
+}
+.foot-items a:active {
+    color:rgba(193, 127, 40, 0.754);
 }

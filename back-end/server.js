@@ -29,7 +29,7 @@ app.get('/events/october', (req, res)=>{
 app.get('/events/october/:type', (req, res)=>{
     let type = req.params.type;
     let month = req.params.month;
-    console.log(req.params);
+    
         client.query('SELECT * FROM october_events WHERE event_type=$1', [type])
     .then(result => {
         res.send(result.rows);
@@ -39,11 +39,23 @@ app.get('/events/october/:type', (req, res)=>{
 app.post('/events/october', (req, res) => {
     let newEvent = req.body;
     let month = req.params.month;
-    client.query('INSERT INTO october_events (event_name, event_type, month_day) VALUES ($1, $2, $3)', [newEvent.event_name, newEvent.event_type, newEvent.month_day])
+    client.query('INSERT INTO october_events (event_name, event_type, month_day) VALUES ($1, $2, $3)', 
+    [newEvent.event_name, newEvent.event_type, newEvent.month_day])
     .then(result => {
-        res.send(res.rows)
+        res.send(result.rows)
     })
 })
+
+app.delete('/events/october/:id', (req, res) => {
+    let eventId = req.params.id;
+    console.log(eventId);
+    client.query('DELETE FROM october_events WHERE event_id=$1', [eventId])
+    .then(result => {
+        res.send(result.rows)
+    })
+})
+
+
 
 app.use((req, res, next)=>{
     res.status(404).send('Not found')

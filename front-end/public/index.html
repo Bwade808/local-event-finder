@@ -7,94 +7,116 @@
     <title>Local Event Finder</title>
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+        <div class="header-container">
+            <header>
+                <h1 class="main">Phoenix Event Finder</h1>
+            </header>
+        </div>
+        <div class="after-header-container">
+            <div></div>
+            <div class="results-h2"><h2>Search Results</h2></div>
+        </div>
+        
+        <div class="main-container">
+            <div class="input-container">
+                <div class="input-inner-container">
+                    <div class="input_box">
+                        <h2>Search Events</h2>
+                        <!-- <form action="/action_page.php"> -->
+                        <!-- <label for="month">Month</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name.."> -->
+                    
+                        <!-- <label for="type">Last Name</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name.."> -->
+                        <label for="month">Month</label>
+                        <select id="month" name="month">
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                        </select>
+                        
+                        <label for="type">Event type</label>
+                        <select id="event_type" name="type">
+                        <option value="Family">Family</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Adult">Adult</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="All">All</option>
+                        </select>
+                        
+                        <input type="submit" value="Search" onclick="searchAll()">
+                        <!-- </form> -->
+                    </div>
+                    <div class="add_box">
+                        <h2>Add Events</h2>
+                        <label for="month">Month</label>
+                        <select id="add_month" name="month">
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                        </select><br/>
+                        
+                        <label for="type">Event type</label>
+                        <select id="add_event_type" name="type">
+                        <option value="Family">Family</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Adult">Adult</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Entertainment">Entertainment</option>
+                        </select><br/>
     
-        <header>
-            <h1 class="main">Phoenix Event Finder</h1>
-        </header>
-        <div class="both_boxes">
-        <div class="input_box">
-            <h2>Search Events</h2>
-            <!-- <form action="/action_page.php"> -->
-              <!-- <label for="month">Month</label>
-              <input type="text" id="fname" name="firstname" placeholder="Your name.."> -->
-          
-              <!-- <label for="type">Last Name</label>
-              <input type="text" id="lname" name="lastname" placeholder="Your last name.."> -->
-            <label for="month">Month</label>
-            <select id="month" name="month">
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-            </select>
-            
-            <label for="type">Event type</label>
-            <select id="event_type" name="type">
-            <option value="Family">Family</option>
-            <option value="Sports">Sports</option>
-            <option value="Adult">Adult</option>
-            <option value="Comedy">Comedy</option>
-            <option value="All">All</option>
-            </select>
-            
-              <input type="submit" value="Search" onclick="searchAll()">
-            <!-- </form> -->
-          </div>
-          <div class="add_box">
-            <h2>Add Events</h2>
-            <label for="month">Month</label>
-            <select id="add_month" name="month">
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-            </select><br/>
-            
-            <label for="type">Event type</label>
-            <select id="add_event_type" name="type">
-            <option value="Family">Family</option>
-            <option value="Sports">Sports</option>
-            <option value="Adult">Adult</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Entertainment">Entertainment</option>
-            </select><br/>
-
-            <label for="type">Event Name</label>
-            <input type="text" id="e_name" name="e_name" placeholder="event name..."><br/>
-
-            <label for="event_date">Enter date and start time for the event:</label>
-            <input id="event_date" type="datetime-local" name="date" />
-            
-            <input type="submit" value="Add Event" onclick="addEvent()">
-        </div>
-        </div>
-    <div class="outer_results">
-        <h2>Search Results</h2>
-        <div class="results">
-            
-        </div>
-       
-    </div>
+                        <label for="type">Event Name</label>
+                        <input type="text" id="e_name" name="e_name" placeholder="event name..."><br/>
     
+                        <label for="event_date">Enter date and start time for the event:</label>
+                        <input id="event_date" type="datetime-local" name="date" />
+                        
+                        <input type="submit" value="Add Event" onclick="addEvent()">
+                    </div>
+                </div>
+            </div>  
+            <div class="results-container">
+                
+                <div class="results">
+                </div> 
+            </div>
+            
+        </div>
+        <div class="footer-container">
+            <div class="footer-h3">
+                <h3>Contact Info:</h3>
+            </div>
+            <footer class="foot-items">
+                <div class="email"><a href="mailto: bwka85@gmail.com">Email me</a></div>
+                <div class="linkedin"><a href="https://www.linkedin.com/in/brandon-wk-adviento">LinkedIn</a></div>
+                <div class="github"><a href="https://github.com/Bwade808">Github</a></div>
+            </footer>
+        </div>
+    
+        
     
 </body>
 </html>
