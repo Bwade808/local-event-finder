@@ -14,10 +14,10 @@ app.use(cors());
 
 
 
-// const corsOptions = {
-//     origin: "http:// ",
-//     optionsSuccessStatus: 200
-// };
+const corsOptions = {
+    origin: "https://phoenix-event-finder.onrender.com/",
+    optionsSuccessStatus: 200
+};
 
 app.get('/events/october', (req, res)=>{
     client.query('SELECT * FROM october_events')
