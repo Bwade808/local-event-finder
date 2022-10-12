@@ -4,7 +4,8 @@
   "description": "Local Event Finder front-end server",
   "main": "index.js",
   "scripts": {
-    "test": "start: node index.js"
+    "test": "",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
