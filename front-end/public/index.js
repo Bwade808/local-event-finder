@@ -10,6 +10,10 @@ const aType = document.querySelector('#add_event_type');
 const day = document.querySelector('#event_date');
 const eName = document.querySelector('#e_name');
 const clickCard = document.querySelectorAll('.newCard');
+
+const url = "https://event-finder-api.onrender.com";
+// const url = "http://localhost:8002";
+
 // const cardEvent = document.querySelector('.cardEvent');
 
 // let cardCreator = (name, type, date) => {
@@ -26,14 +30,10 @@ const clickCard = document.querySelectorAll('.newCard');
 //     // results.append(newCard);
 // };
 
-
-
-
-
 let searchAll = () =>{
     resultsH2.innerHTML = h2Text;
 if(sMonth.value === "October" && sType.value === "All"){
-fetch('http://localhost:8002/events/october')
+fetch(`${url}/events/october`)
 .then((response)=> response.json())
 .then((data)=>{
     return data;
@@ -69,7 +69,7 @@ let querySearch = () => {
     results.innerHTML = "";
     let typeVal = sType.value;
     let monthVal = sMonth.value;
-    fetch(`http://localhost:8002/events/${monthVal}/${typeVal}`)
+    fetch(`${url}/events/${monthVal}/${typeVal}`)
     .then((response) => response.json())
     .then((data) => {
         return data;
@@ -101,7 +101,7 @@ let querySearch = () => {
                 let eId = e.target.id;
                 let isConfirmed = confirm('Are you sure you want to delete this event?');
                 if(isConfirmed){
-                    fetch(`http://localhost:8002/events/october/${eId}`,{
+                    fetch(`${url}/events/october/${eId}`,{
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ let addEvent = () => {
         
     };
     if(aMonthVal === "October"){
-        fetch('http://localhost:8002/events/october', {
+        fetch(`${url}/events/october`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
