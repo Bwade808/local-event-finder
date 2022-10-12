@@ -29,42 +29,6 @@ const url = "https://event-finder-api.onrender.com";
 //     return newCard;
 //     // results.append(newCard);
 // };
-
-let searchAll = () =>{
-    resultsH2.innerHTML = h2Text;
-if(sMonth.value === "october" && sType.value === "All"){
-fetch(`${url}/events/october`)
-.then((response)=> response.json())
-.then((data)=>{
-    return data;
-})
-.then((data)=>{
-    for (var i = 0; i < data.length; i++){
-        let data1 = data[i].event_name;
-        let data2 = data[i].event_type;
-        let data3 = data[i].month_day;
-        let newCard = document.createElement('div');
-        newCard.className = "newCard";
-        newCard.id = data[i].event_id;
-        let eventName = document.createElement('h2');
-        eventName.className = "cardEvent";
-        eventName.textContent = data1;
-        let eventTypeDate = document.createElement('h3');
-        eventTypeDate.className = "cardTypeDate";
-        eventTypeDate.textContent = `${data2} / October ${data3}, 2022`;
-        let deleteIcon = document.createElement('button');
-        deleteIcon.className = "fa fa-trash";
-        let updateIcon = document.createElement('button');
-        updateIcon.className = "fas fa-edit";
-        newCard.append(eventName, eventTypeDate, deleteIcon, updateIcon);
-        results.append(newCard);
-    }
-});
-} else {
-    querySearch();
-}
-};
-
 let querySearch = () => {
     results.innerHTML = "";
     let typeVal = sType.value;
@@ -116,6 +80,43 @@ let querySearch = () => {
         }
     })
 };
+
+let searchAll = () =>{
+    resultsH2.innerHTML = h2Text;
+if(sMonth.value === "october" && sType.value === "All"){
+fetch(`${url}/events/october`)
+.then((response)=> response.json())
+.then((data)=>{
+    return data;
+})
+.then((data)=>{
+    for (var i = 0; i < data.length; i++){
+        let data1 = data[i].event_name;
+        let data2 = data[i].event_type;
+        let data3 = data[i].month_day;
+        let newCard = document.createElement('div');
+        newCard.className = "newCard";
+        newCard.id = data[i].event_id;
+        let eventName = document.createElement('h2');
+        eventName.className = "cardEvent";
+        eventName.textContent = data1;
+        let eventTypeDate = document.createElement('h3');
+        eventTypeDate.className = "cardTypeDate";
+        eventTypeDate.textContent = `${data2} / October ${data3}, 2022`;
+        let deleteIcon = document.createElement('button');
+        deleteIcon.className = "fa fa-trash";
+        let updateIcon = document.createElement('button');
+        updateIcon.className = "fas fa-edit";
+        newCard.append(eventName, eventTypeDate, deleteIcon, updateIcon);
+        results.append(newCard);
+    }
+});
+} else {
+    querySearch();
+}
+};
+
+
 
 //FETCH POST
 let addEvent = () => {
