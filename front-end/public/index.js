@@ -32,7 +32,7 @@ const url = "https://event-finder-api.onrender.com";
 
 let searchAll = () =>{
     resultsH2.innerHTML = h2Text;
-if(sMonth.value === "October" && sType.value === "All"){
+if(sMonth.value === "october" && sType.value === "All"){
 fetch(`${url}/events/october`)
 .then((response)=> response.json())
 .then((data)=>{
