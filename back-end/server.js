@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const { Client } = require('pg');
-const config = require('./config')[process.env.NODE_ENV || "dev"];
+const config = require('./config.js')[process.env.NODE_ENV || "dev"];
 const PORT = config.port;
 const client = new Client ({
     connectionString: config.connectionString,
@@ -14,10 +14,10 @@ app.use(cors());
 
 
 
-const corsOptions = {
-    origin: "https://phoenix-event-finder.onrender.com/",
-    optionsSuccessStatus: 200
-};
+// const corsOptions = {
+//     origin: "https://phoenix-event-finder.onrender.com/",
+//     optionsSuccessStatus: 200
+// };
 
 app.get('/events/october', (req, res)=>{
     client.query('SELECT * FROM october_events')
@@ -30,7 +30,7 @@ app.get('/events/october/:type', (req, res)=>{
     let type = req.params.type;
     let month = req.params.month;
     
-        client.query('SELECT * FROM october_events WHERE event_type=$1', [type])
+    client.query('SELECT * FROM october_events WHERE event_type=$1', [type])
     .then(result => {
         res.send(result.rows);
     })
