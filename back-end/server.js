@@ -24,6 +24,9 @@ app.get('/events/october', (req, res)=>{
     .then(result =>{
         res.send(result.rows);
     })
+    .catch(err => {
+        res.console.log(err);
+    })
 });
 
 app.get('/events/october/:type', (req, res)=>{
@@ -33,6 +36,9 @@ app.get('/events/october/:type', (req, res)=>{
     client.query('SELECT * FROM october_events WHERE event_type=$1', [type])
     .then(result => {
         res.send(result.rows);
+    })
+    .catch(err => {
+        res.console.log(err);
     })
 })
 
@@ -44,6 +50,9 @@ app.post('/events/october', (req, res) => {
     .then(result => {
         res.send(result.rows)
     })
+    .catch(err => {
+        res.console.log(err);
+    })
 })
 
 app.delete('/events/october/:id', (req, res) => {
@@ -52,6 +61,9 @@ app.delete('/events/october/:id', (req, res) => {
     client.query('DELETE FROM october_events WHERE event_id=$1', [eventId])
     .then(result => {
         res.send(result.rows)
+    })
+    .catch(err => {
+        res.console.log(err);
     })
 })
 
