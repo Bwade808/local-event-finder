@@ -11,8 +11,8 @@ const day = document.querySelector('#event_date');
 const eName = document.querySelector('#e_name');
 const clickCard = document.querySelectorAll('.newCard');
 
-// const url = "https://event-finder-api.onrender.com";
-const url = "http://localhost:8002";
+const url = "https://event-finder-api.onrender.com";
+// const url = "http://localhost:8002";
 
 // const cardEvent = document.querySelector('.cardEvent');
 
