@@ -1,6 +1,6 @@
 module.exports = {
     dev: {
-        connectionString: "postgres://postgres:postgrespw@localhost:49156/events",
+        connectionString: "postgres://postgres:postgrespw@localhost:49153/events",
         port: '8002'
     },
     production: {
