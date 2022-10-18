@@ -13,8 +13,8 @@ const clickCard = document.querySelectorAll('.newCard');
 let deleteIcon;
 
 //RENDER and LOCALHOST URLs
-    // const url = "https://event-finder-api.onrender.com";
-    const url = "http://localhost:8002";
+    const url = "https://event-finder-api.onrender.com";
+    // const url = "http://localhost:8002";
 
 //FUNCTION TO CREATE RESULT CARDS
 let cardCreator = (name, type, date, data) => {
